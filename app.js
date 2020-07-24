@@ -90,17 +90,17 @@ console.log(tesla);
 tesla.drive();
 tesla.intro();
 
-// class GithubProfile {
-//     constructor(username, name, url) {
-//         this.username = username;
-//         this.name = name;
-//         this.url = url;
-//     }
+class GithubProfile {
+    constructor(username, name, url) {
+        this.username = username;
+        this.name = name;
+        this.url = url;
+    }
 
-//     intro() {
-//         console.log(`My name is ${this.name} and my username is @${this.username}`);
-//     }
-// }
+    intro() {
+        console.log(`My name is ${this.name} and my username is @${this.username}`);
+    }
+}
 
 // //https://api.github.com/users/gaganshayan
 // fetch('https://api.github.com/users/gaganshayan')
@@ -122,7 +122,7 @@ tesla.intro();
 //     shayan.intro();
 // })
 
-let isMomHappy = false;
+// let isMomHappy = false;
 
 // // Promise
 // let willIGetNewPhone = new Promise(
@@ -141,21 +141,50 @@ let isMomHappy = false;
 //     }
 // );
 
-// console.log(willIGetNewPhone);
-let willIGetNewPhone = new Promise ((resolve, reject) => {
-    if (isMomHappy) {
-        const phone = {
-            brand: 'iPhone',
-            color: 'red',
-        }
-        resolve(phone);
-    }
-    else {
-        reject('no phone');
-    }
-})
+// // console.log(willIGetNewPhone);
+// let willIGetNewPhone = new Promise ((resolve, reject) => {
+//     if (isMomHappy) {
+//         const phone = {
+//             brand: 'iPhone',
+//             color: 'red',
+//         }
+//         resolve(phone);
+//     }
+//     else {
+//         reject('no phone');
+//     }
+// })
 
-// console.log(willIGetNewPhone);
-willIGetNewPhone.then(resul => {
-    console.log(result);
-});
+// // console.log(willIGetNewPhone);
+// willIGetNewPhone.then(resul => {
+//     console.log(result);
+// });
+
+async function printUsers() {
+    let shayanEndpoint = 'https://api.github.com/users/gaganshayan';
+    let lizzEndpoint = 'https://api.github.com/users/Lizzwest';
+    let shayan = await fetch(shayanEndpoint).then(response => {
+        return response.json();
+    });
+    let lizz = fetch(lizzEndpoint).then(response => response.json());
+    console.log(shayan);
+    console.log(lizz);
+  }
+  
+  printUsers();
+
+  // set up fetch using await
+  // grab login name
+  // print the login name
+
+  async function printFacebook() {
+      let facebookEndpoint = 'https://api.github.com/users/facebook';
+      let facebook = await fetch(facebookEndpoint).then(res => res.json())
+          console.log(facebook.login);
+    }
+      printFacebook()
+
+//   fetch(endpoint)
+//  .then(response => {
+//      return response.json();
+//  });
